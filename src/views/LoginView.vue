@@ -1,5 +1,5 @@
 <template>
-    <div class="about">
+    <div class="trabalho">
         <h1>Bem vindo {{ nome }}</h1>
         <label for="nome">Nome: </label>
         <input id="nome" type="text" v-model="nome" />

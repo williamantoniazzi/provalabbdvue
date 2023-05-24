@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="facalancamento">
     <h1>Olá {{ nome }}!</h1>
     <input type="text" v-model="nome"/>
     <p v-if="nome.length > 5">Texto longo</p>
