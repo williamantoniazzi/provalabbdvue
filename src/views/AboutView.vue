@@ -57,6 +57,7 @@ async function cadastrar() {
     {
       nome: nome.value,
       senha: senha.value
+      
     });
   atualizar();
 }
