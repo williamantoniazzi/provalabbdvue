@@ -1,4 +1,5 @@
 <template>
+    <div class="facalancamento"></div>
     <div>
         <p>
             <label>Justificativa: </label>
@@ -24,12 +25,12 @@
                 <td>Data/Hora Fim</td>
                 <td>Tipo</td>
             </thead>
-            <tr v-for="lancamento in lancamentos" :key="lancamento.justificativa">
-                <td>{{ lancamento.justificativa }}</td>
-                <td>{{ lancamento.dataHoraInicio }}</td>
-                <td>{{ lancamento.dataHoraFim }}</td>
-                <td v-if="lancamento.tipo === 'N'">Normal</td>
-                <td v-else-if="lancamento.tipo === 'E'">Extra</td>
+            <tr v-for="facalancamento in facalancamentos" :key="facalancamento.justificativa">
+                <td>{{ facalancamento.justificativa }}</td>
+                <td>{{ facalancamento.dataHoraInicio }}</td>
+                <td>{{ facalancamento.dataHoraFim }}</td>
+                <td v-if="facalancamento.tipo === 'N'">Normal</td>
+                <td v-else-if="facalancamento.tipo === 'E'">Extra</td>
             </tr>
         </table>
     </div>
@@ -44,14 +45,14 @@ const dataHoraInicio = ref("");
 const dataHoraFim = ref("");
 const tipo = ref("");
 
-const lancamentos = ref([{justificativa: "", dataHoraInicio: "", dataHoraFim: "", tipo: "N"}]);
+const facalancamentos = ref([{justificativa: "", dataHoraInicio: "", dataHoraFim: "", tipo: "N"}]);
 
 async function atualizar() {
-    lancamentos.value = (await axios.get('lancamento')).data;
+    facalancamentos.value = (await axios.get('facalancamento')).data;
 }
 
 async function cadastrar() {
-    await axios.post('lancamento',
+    await axios.post('facalancamento',
         {
             justificativa: justificativa.value,
             dataHoraInicio: dataHoraInicio.value,
